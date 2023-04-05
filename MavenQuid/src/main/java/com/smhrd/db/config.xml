@@ -8,7 +8,7 @@
   
   <!-- 타입 별칭 -->
   <typeAliases>
-  	<typeAlias type="com.smhrd.model.WebMember" alias="WebMember"/>
+  	<typeAlias type="com.smhrd.model.WebMember1" alias="WebMember1"/>
   </typeAliases>
 
   <environments default="development">

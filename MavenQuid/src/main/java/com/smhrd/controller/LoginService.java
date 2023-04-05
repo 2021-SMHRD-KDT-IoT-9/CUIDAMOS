@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.smhrd.model.WebMember;
+import com.smhrd.model.WebMember1;
 import com.smhrd.model.WebMemberDAO;
 
 public class LoginService extends HttpServlet {
@@ -21,10 +21,10 @@ public class LoginService extends HttpServlet {
 		
 		System.out.println(gu_id + ", "+ pw);
 		
-		WebMember vo = new WebMember(gu_id, pw);
+		WebMember1 vo = new WebMember1(gu_id, pw);
 		
 		WebMemberDAO dao = new WebMemberDAO();
-		WebMember loginMember = dao.login(vo);
+		WebMember1 loginMember = dao.login(vo);
 		
 		if(loginMember != null) {
 			//로그인 성공

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smhrd.model.WebMember;
+import com.smhrd.model.WebMember1;
 import com.smhrd.model.WebMemberDAO;
 
 public class JoinService extends HttpServlet {
@@ -25,9 +25,9 @@ public class JoinService extends HttpServlet {
 		String birth = request.getParameter("birth");
 		String gu_job = request.getParameter("gu_job");
 		String gender = request.getParameter("gender");
-		int furniture = Integer.parseInt(request.getParameter("furniture"));
+		String furniture = request.getParameter("furniture");
 		
-		WebMember vo = new WebMember(gu_id, pw, gu_name, address, phone, birth, gu_job, gender, furniture);
+		WebMember1 vo = new WebMember1(gu_id, pw, gu_name, address, phone, birth, gu_job, gender, furniture);
 		
 		WebMemberDAO dao = new WebMemberDAO();
 		int cnt = dao.join(vo);

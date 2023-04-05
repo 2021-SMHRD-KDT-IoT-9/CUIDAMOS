@@ -11,7 +11,7 @@ public class WebMemberDAO {
 	SqlSessionFactory sessionFactory = SqlSessionManager.getSessionFactory();
 	
 	// 회원가입
-	public int join (WebMember vo) {
+	public int join (WebMember1 vo) {
 		SqlSession sqlSession = sessionFactory.openSession(true); //true: 오토커밋이 가능
 		
 		int cnt = sqlSession.insert("join",vo);
@@ -22,8 +22,8 @@ public class WebMemberDAO {
 	}
 	
 	//로그인
-	public WebMember login(WebMember vo) {
-		WebMember loginMember = null;
+	public WebMember1 login(WebMember1 vo) {
+		WebMember1 loginMember = null;
 		
 		SqlSession sqlSession = sessionFactory.openSession(true);
 		loginMember = sqlSession.selectOne("login", vo); // selectOne: 해당 행 한 줄만 가져오기
@@ -34,7 +34,7 @@ public class WebMemberDAO {
 	}
 	
 	//회원정보수정
-	public int update(WebMember vo) {
+	public int update(WebMember1 vo) {
 		SqlSession sqlSession = sessionFactory.openSession(true);
 		int cnt = sqlSession.update("update",vo);
 		sqlSession.close();
@@ -43,9 +43,9 @@ public class WebMemberDAO {
 	
 	//전체회원정보 불러오기
 		//여러개의 객체를 묶어서 반환 -> List<실제 리스트 안에 들어가는 객체 타입>
-		public List<WebMember> select(){
+		public List<WebMember1> select(){
 			SqlSession sqlSession = sessionFactory.openSession(true);
-			List<WebMember> list = sqlSession.selectList("select");
+			List<WebMember1> list = sqlSession.selectList("select");
 			sqlSession.close();
 			return list;
 		}
@@ -56,6 +56,10 @@ public class WebMemberDAO {
 			int cnt = sqlSession.delete("delete",gu_id);
 			sqlSession.close();
 			return cnt;
+		}
+		
+		//개인회원정보 불러오기
+	
 		}
 		
 
@@ -75,4 +79,4 @@ public class WebMemberDAO {
 //			return result; //true(있는 값인 경우 - 사용불가능) / false(없는 값인 경우 - 사용가능)
 
 //		}
-}
+

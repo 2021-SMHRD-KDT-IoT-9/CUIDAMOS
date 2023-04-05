@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.smhrd.model.WebMember;
+import com.smhrd.model.WebMember1;
 import com.smhrd.model.WebMemberDAO;
 
 public class UpdateService extends HttpServlet {
@@ -25,16 +25,16 @@ public class UpdateService extends HttpServlet {
 		String birth = request.getParameter("birth");
 		String gu_job = request.getParameter("gu_job");
 		String gender = request.getParameter("gender");
-		int furniture = Integer.parseInt(request.getParameter("furniture"));
+		String furniture = request.getParameter("furniture");
 		
 		//현재 로그인한 사용자의 아이디 -> 세션
 		HttpSession session = request.getSession();
 		//로그인할 때 저장된 현재 아이디, 비번 등 모든 데이터 
-		WebMember vo = (WebMember) session.getAttribute("loginMember");
+		WebMember1 vo = (WebMember1) session.getAttribute("loginMember");
 		String gu_id = vo.getGu_id();
 		
 		
-		WebMember vo2 = new WebMember(gu_id, pw, gu_name, address, phone, birth, gu_job, gender, furniture);
+		WebMember1 vo2 = new WebMember1(gu_id, pw, gu_name, address, phone, birth, gu_job, gender, furniture);
 		
 		WebMemberDAO dao = new WebMemberDAO();
 		int cnt = dao.update(vo2);

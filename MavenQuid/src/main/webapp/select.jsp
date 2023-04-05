@@ -1,5 +1,5 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
-<%@page import="com.smhrd.model.WebMember"%>
+<%@page import="com.smhrd.model.WebMember1"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.WebMemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -14,12 +14,11 @@
 	
 	<%
 		//페이지를 이동하자마자 DB 안에서 값만 그대로 가지고 와서 출력할 수 있도록
-		WebMemberDAO dao = new WebMemberDAO();
-		List<WebMember> list = dao.select();
-		
-		System.out.print(list.get(0).getGu_id());
-		
-	%>
+				WebMemberDAO dao = new WebMemberDAO();
+				List<WebMember1> list = dao.select();
+				
+				System.out.print(list.get(0).getGu_id());
+		%>
 	
 	<body style="text-align: center;">
 		<!-- Wrapper -->

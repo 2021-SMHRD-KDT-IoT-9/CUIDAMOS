@@ -1,26 +1,22 @@
-<%@page import="com.smhrd.model.WebMemberDAO"%>
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
-<%@page import="com.smhrd.model.WebMember"%>
+<%@page import="com.smhrd.model.WebMember1"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
 <html>
 	<head>
-		<title>Dimension by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-	
 		<%
 			//session 값 가져오기
-			WebMember loginMember = (WebMember) session.getAttribute("loginMember");
-			
-			if(loginMember != null){
-				System.out.print(loginMember.getGu_id()); %>
+				WebMember1 loginMember = (WebMember1) session.getAttribute("loginMember");
+				
+				if(loginMember != null){
+					System.out.print(loginMember.getGu_id());
+			%>
 				<%=loginMember.getGu_id() %>아, Cuidamos에 온 걸 환영해 ╰(*°▽°*)╯
 		<%	} %>
 		<!-- Wrapper -->
@@ -29,13 +25,13 @@
 				<!-- Header -->
 					<header id="header">
 						<div class="logo">
-							<span class="icon fa-gem"></span>
+							<img src = images/logo_1.png >
+							
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>Dimension</h1>
-								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
-								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
+								<h1>고독사에서 당신을 구하다</h1>
+								<p>우리는 어쩌고 저쩌고를 지원해 줄거야 너는 그냥 써</p>
 							</div>
 						</div>
 						<nav>
@@ -43,8 +39,7 @@
 								<li><a href="#intro">Intro</a></li>
 								<li><a href="#work">Work</a></li>
 								<li><a href="#about">About</a></li>
-								
-									<% if(loginMember == null){ %>
+								<% if(loginMember == null){ %>
 										<li> <a href="#login">로그인</a> </li>
 									<% } else {
 										if(loginMember.getGu_id().equals("admin")){ %>
@@ -55,7 +50,6 @@
 										<li> <a href="LogoutService">로그아웃</a> </li>
 									<% }} %>
 								
-								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
 					</header>
@@ -66,51 +60,51 @@
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+								<p >당신의 안전과 행복을 위해, 저희는 고독사 대처 및 예방 IoT 프로젝트를 진행하고 있습니다. 
+									이 프로젝트는 응급상황에 대처할 수 없는 독거노인분들이나 혼자 생활하는 사람들을 위해, 
+									생활 공간에서 벌어지는 긴급 상황을 감지하고 조치를 취할 수 있는 시스템을 구축하는 것을 목표로 만들어진 프로젝트입니다. </p>
+								
+								<p>저희 IoT 시스템은 다양한 센서를 사용하여, 특정한 환경에서 벌어지는 상황을 감지하고, 
+									이를 기반으로 긴급 상황에 대처할 수 있는 알림 및 구조 조치를 제공하고 있습니다. 
+									예를 들어, 움직임 센서 및 수압센서는 보호대상자의 움직임 및 물 사용을 감지하고, 
+									생명활동에 대한 정보를 수집하며, 급작스럽게 일어날 수 있는 긴급 상황을 예방할 수 있습니다.</p>
+								
+									<p>또한, 우리의 시스템은 상시 모니터링과 상호작용을 통해, 보호대상자분들이 혼자서 생활하는 경우에도 안심할 수 있는 시스템을 제공합니다. 이를 통해, 
+										자신의 삶을 더욱 독립적으로 유지하면서도 안전하게 살아갈 수 있습니다.
+										저희는 "고독사에서 당신을 구하다"는 모토를 가지고 있습니다. 고독사는 요즘 사회에서 대두되는 고민거리입니다. 하지만 우리는 이 고민거리를 함께 극복할 수 있습니다. 
+										저희의 IoT 기술은 당신들의 안전과 행복을 지켜드리며,  사용자들이 편안한 생활을 할 수 있도록 도우미가 되어 드립니다.
+										저희와 함께, 삶의 가치를 지켜나갈 수 있는 Cuidamos 제품을 체험해보세요. </p>
+								
 							</article>
 
 						<!-- Work -->
 							<article id="work">
 								<h2 class="major">Work</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+								<span class="image main"><img src="" alt="" /></span>
+								<p>소개글</p>
+								
 							</article>
 
 						<!-- About -->
 							<article id="about">
 								<h2 class="major">About</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+								<span class="image main"><img src="" alt="" /></span>
+								<p>소개글</p>
+							</article>
+						
+						<!-- login -->
+							<article id="login">
+								<h2 class="major">login</h2>
+								<form method="post" action="LoginService">
+									<input type="text" name="gu_id" class="text-field" placeholder="아이디를 입력하세요">
+									<input type="password" name="pw" class="text-field" placeholder="비밀번호를 입력하세요">
+									<input type="submit" value="로그인" class="submit-btn">
+									
+									<a href="#join"><input type="button" value="회원가입" class="submit-btn" /></a>
+								  </form>
 							</article>
 
-						<!-- Contact -->
-							<article id="login">
-								<h2 class="major">로그인</h2>
-								<form method="post" action="LoginService">
-									<div class="fields">
-										<div class="field half">
-											<label for="gu_id">아이디</label>
-											<input type="text" name="gu_id" id="id" />
-										</div>
-										
-										<div class="field half">
-											<label for="pw">비밀번호</label>
-											<input type="password" name="pw" id="pw" />
-										</div>
-										
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="로그인" class="primary" /></li>
-										<li><a href="#join"><input type="button" value="회원가입" /></a></li>
-									</ul>
-								</form>
-								
-							</article>
-							
-							<%if(loginMember != null) { %>
+					<%if(loginMember != null) { %>
  							<article id="update">
 								<h2 class="major">정보수정</h2>
 								<form method="post" action="UpdateService">
@@ -284,14 +278,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 										<li>Etiam vel felis lorem.</li>
 										<li>Felis enim et feugiat.</li>
 									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
+								
 									<h4>Actions</h4>
 									<ul class="actions">
 										<li><a href="#" class="button primary">Default</a></li>
@@ -474,7 +461,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p class="copyright">&copy; by Design CUIDAMOS </p>
 					</footer>
 
 			</div>
