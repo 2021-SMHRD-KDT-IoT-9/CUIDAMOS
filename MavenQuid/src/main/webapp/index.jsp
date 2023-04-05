@@ -1,11 +1,10 @@
+<%@page import="com.smhrd.model.WebMemberDAO"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.smhrd.model.WebMember"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
 		<title>Dimension by HTML5 UP</title>
@@ -15,7 +14,15 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
+	
+		<%
+			//session 값 가져오기
+			WebMember loginMember = (WebMember) session.getAttribute("loginMember");
+			
+			if(loginMember != null){
+				System.out.print(loginMember.getGu_id()); %>
+				<%=loginMember.getGu_id() %>아, Cuidamos에 온 걸 환영해 ╰(*°▽°*)╯
+		<%	} %>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -36,7 +43,18 @@
 								<li><a href="#intro">Intro</a></li>
 								<li><a href="#work">Work</a></li>
 								<li><a href="#about">About</a></li>
-								<li><a href="#login">로그인</a></li>
+								
+									<% if(loginMember == null){ %>
+										<li> <a href="#login">로그인</a> </li>
+									<% } else {
+										if(loginMember.getGu_id().equals("admin")){ %>
+										<li> <a href="select.jsp">회원정보확인</a> </li>
+										<li> <a href="LogoutService">로그아웃</a> </li>
+										<%}else{ %>
+										<li> <a href="#update">정보수정</a> </li>
+										<li> <a href="LogoutService">로그아웃</a> </li>
+									<% }} %>
+								
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
@@ -92,6 +110,68 @@
 								
 							</article>
 							
+							<%if(loginMember != null) { %>
+ 							<article id="update">
+								<h2 class="major">정보수정</h2>
+								<form method="post" action="UpdateService">
+									<div class="fields">
+										
+										<div class="field half">
+											<label>아이디</label>
+											<input type="text" value="<%=loginMember.getGu_id()%>" name="gu_id" readonly/>
+										</div>
+										
+										<div class="field half">
+											<label>비밀번호</label>
+											<input type="password" name="pw" id="pw" value="<%=loginMember.getPw() %>"/>
+										</div>
+										
+										<div class="field half">
+											<label>이름</label> 
+											<input type="text" name="gu_name" value="<%=loginMember.getGu_name() %>"/>
+										</div>
+										
+										<div class="field">
+											<label for="address">주소</label>
+											<input type="text" name="address" value="<%=loginMember.getAddress() %>"/>
+										</div>
+										
+										<div class="field half">
+											<label>휴대폰</label> 
+											<input type="text" name="phone" value="<%=loginMember.getPhone() %>" />
+										</div>
+										
+										<div class="field half">
+											<label>생년월일</label> 
+											<input type="text" name="birth" value="<%=loginMember.getBirth() %>"/>
+										</div>
+										
+										<div class="field half">
+											<label>직업</label> 
+											<input type="text" name="gu_job" value="<%=loginMember.getGu_job() %>"/>
+										</div>
+										
+										<div class="field half">
+											<label>성별</label> 
+											<input type="text" name="gender" value="<%=loginMember.getGender() %>"/>
+										</div>
+										
+										<div class="field half">
+											<label>아두이노번호</label> 
+											<input type="text" name="furniture" value="<%=loginMember.getFurniture() %>"/>
+										</div>
+										
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="정보수정" class="button fit"></li>
+									</ul>
+								</form>
+								
+							</article>
+							<%} %>
+							
+
+							
 							<article id="join">
 								<h2 class="major">회원가입</h2>
 								<form method="post" action="JoinService">
@@ -105,15 +185,39 @@
 											<label for="pw">비밀번호</label>
 											<input type="password" name="pw" id="pw" />
 										</div>
-										
 										<div class="field half">
-											<label for="tel">전화번호</label>
-											<input type="text" name="tel" />
+											<label for="name">이름</label> 
+											<input type="text" name="gu_name" />
 										</div>
 										
 										<div class="field">
 											<label for="address">주소</label>
 											<input type="text" name="address" />
+										</div>
+										
+										<div class="field half">
+											<label>휴대폰</label> 
+											<input type="text" name="phone" />
+										</div>
+										
+										<div class="field half">
+											<label>직업</label> 
+											<input type="text" name="birth" />
+										</div>
+										
+										<div class="field half">
+											<label>생년월일</label> 
+											<input type="text" name="gu_job" />
+										</div>
+										
+										<div class="field half">
+											<label>성별</label> 
+											<input type="text" name="gender" />
+										</div>
+										
+										<div class="field half">
+											<label>아두이노번호</label> 
+											<input type="text" name="furniture" />
 										</div>
 										
 									</div>

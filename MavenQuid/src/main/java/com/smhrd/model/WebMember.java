@@ -3,43 +3,80 @@ package com.smhrd.model;
 public class WebMember {
 	private String gu_id;
 	private String pw;
-	private String tel;
+	private String gu_name;
 	private String address;
+	private String phone;
+	private String birth;
+	private String gu_job;
+	private String gender;
+	private int furniture;
+
 	
-	
+
 	@Override
 	public String toString() {
-		return "WebMember [gu_id=" + gu_id + ", pw=" + pw + ", tel=" + tel + ", address=" + address + "]";
+		return "WebMember [gu_id=" + gu_id + ", pw=" + pw + ", gu_name=" + gu_name + ", address=" + address + ", phone="
+				+ phone + ", birth=" + birth + ", gu_job=" + gu_job + ", gender=" + gender + ", furniture=" + furniture
+				+ "]";
 	}
-	public WebMember() {
+
+	public WebMember(String gu_id, String pw, String gu_name, String address, String phone, String birth, String gu_job,
+			String gender, int furniture) {
 		super();
-	}	
-	public WebMember(String gu_id, String pw, String tel, String address) {
 		this.gu_id = gu_id;
 		this.pw = pw;
-		this.tel = tel;
+		this.gu_name = gu_name;
 		this.address = address;
+		this.phone = phone;
+		this.birth = birth;
+		this.gu_job = gu_job;
+		this.gender = gender;
+		this.furniture = furniture;
 	}
-	
+
+	public WebMember() {
+		super();
+	}
+
 	public WebMember(String gu_id, String pw) {
 		this.gu_id = gu_id;
 		this.pw = pw;
 	}
-	
-	public String getEmail() {
+
+	public String getGu_id() {
 		return gu_id;
 	}
+
 	public String getPw() {
 		return pw;
 	}
-	public String getTel() {
-		return tel;
+
+	public String getGu_name() {
+		return gu_name;
 	}
+
 	public String getAddress() {
 		return address;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public String getBirth() {
+		return birth;
+	}
+
+	public String getGu_job() {
+		return gu_job;
+	}
+
+	public String getGender() {
+		return gender;
+	}
 	
-	
+	public int getFurniture() {
+		return furniture;
+	}
 
 }

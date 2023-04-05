@@ -1,23 +1,23 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.WebMember;
 import com.smhrd.model.WebMemberDAO;
 
-public class JoinService extends HttpServlet {
+public class UpdateService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		String gu_id = request.getParameter("gu_id");
+//		String gu_id = request.getParameter("gu_id");
+		
 		String pw = request.getParameter("pw");
 		String gu_name = request.getParameter("gu_name");
 		String address = request.getParameter("address");
@@ -27,24 +27,26 @@ public class JoinService extends HttpServlet {
 		String gender = request.getParameter("gender");
 		int furniture = Integer.parseInt(request.getParameter("furniture"));
 		
-		WebMember vo = new WebMember(gu_id, pw, gu_name, address, phone, birth, gu_job, gender, furniture);
+		//현재 로그인한 사용자의 아이디 -> 세션
+		HttpSession session = request.getSession();
+		//로그인할 때 저장된 현재 아이디, 비번 등 모든 데이터 
+		WebMember vo = (WebMember) session.getAttribute("loginMember");
+		String gu_id = vo.getGu_id();
+		
+		
+		WebMember vo2 = new WebMember(gu_id, pw, gu_name, address, phone, birth, gu_job, gender, furniture);
 		
 		WebMemberDAO dao = new WebMemberDAO();
-		int cnt = dao.join(vo);
+		int cnt = dao.update(vo2);
 		
-		if(cnt > 0) {
-			//회원가입 성공
-			System.out.println("회원가입 성공");
-			RequestDispatcher rd = request.getRequestDispatcher("joinSuccess.jsp");
-			request.setAttribute("gu_id", gu_id);
-			rd.forward(request, response);
-		
+		if(cnt>0) {
+			System.out.println("정보수정성공!");
+			session.setAttribute("loginMember", vo2);
 		}else {
-			//회원가입 실패
-			System.out.println("회원가입 실패!");
-			response.sendRedirect("index.jsp");
-			
+			System.out.println("정보수정실패!!");
 		}
+		response.sendRedirect("index.jsp");
+
 	}
 
 }

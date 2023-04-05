@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.WebMember;
 import com.smhrd.model.WebMemberDAO;
@@ -28,9 +29,13 @@ public class LoginService extends HttpServlet {
 		if(loginMember != null) {
 			//로그인 성공
 			System.out.println("로그인 성공");
+			HttpSession session = request.getSession();
+			session.setAttribute("loginMember", loginMember);
+			response.sendRedirect("index.jsp");
 		}else {
 			//로그인 실패
 			System.out.println("로그인 실패!");
+			response.sendRedirect("index.jsp");
 		}
 		
 	}

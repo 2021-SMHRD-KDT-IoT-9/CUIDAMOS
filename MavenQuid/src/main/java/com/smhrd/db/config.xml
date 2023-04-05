@@ -5,6 +5,11 @@
 <configuration>
 
   <properties resource = "com/smhrd/db/db.properties"/>
+  
+  <!-- 타입 별칭 -->
+  <typeAliases>
+  	<typeAlias type="com.smhrd.model.WebMember" alias="WebMember"/>
+  </typeAliases>
 
   <environments default="development">
     <environment id="development">

@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.db.MemberMapper">
-	<insert id="join" parameterType="com.smhrd.model.WebMember">
-		insert into Guardian values (#{gu_id}, #{pw}, #{gu_name}, #{address}, #{tel}, #{birth}, #{gu_job}, #{gender})
+	<insert id="join" parameterType="WebMember">
+		insert into Guardian values (#{gu_id}, #{pw}, #{gu_name}, #{address}, #{phone}, #{birth}, #{gu_job}, #{gender}, #{furniture})
 	</insert>
 	
-	<select id="login" parameterType="com.smhrd.model.WebMember" resultType="com.smhrd.model.WebMember">
+	<select id="login" parameterType="WebMember" resultType="WebMember">
 		select * from Guardian where gu_id=#{gu_id} and pw=#{pw}
 	</select>
 	
+	<update id="update" parameterType="WebMember">
+		update Guardian set pw=#{pw}, gu_name=#{gu_name}, address=#{address}, phone=#{phone}, birth=#{birth}, gu_job=#{gu_job}, gender=#{gender}, furniture=#{furniture} where gu_id=#{gu_id} 
+	</update>
+	
+	<select id="select" resultType="WebMember">
+		select * from Guardian
+	</select>
+	
+	<delete id="delete" parameterType="String">
+		delete from Guardian where gu_id=#{gu_id}
+	</delete>
+		
 </mapper>

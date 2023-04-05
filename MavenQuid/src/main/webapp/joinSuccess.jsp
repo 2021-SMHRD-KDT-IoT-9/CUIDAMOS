@@ -19,7 +19,7 @@
 <body style="text-align: center;">
 
 	<%
-		String email = (String) request.getAttribute("joinEmail");
+		String gu_id = (String) request.getAttribute("gu_id");
 	%>
 
 	<!-- Wrapper -->
@@ -32,9 +32,9 @@
 		
 		<table>
 			<tr>
-				<td>Email</td>
-				<td><%=email %></td>
-				<td>el: ${requestScope.joinEmail}</td>	
+				<td>gu_id</td>
+				<td><%=gu_id %></td>
+				<%-- <td>el: ${requestScope.gu_id}</td> --%>	
 			</tr>
 		</table>
 		<a href="index.jsp"><input type="button" value="메인페이지로"></a> </nav>
