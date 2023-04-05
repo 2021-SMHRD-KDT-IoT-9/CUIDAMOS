@@ -17,8 +17,8 @@
 				if(loginMember != null){
 					System.out.print(loginMember.getGu_id());
 			%>
-				<%=loginMember.getGu_id() %>아, Cuidamos에 온 걸 환영해 ╰(*°▽°*)╯
-		<%	} %>
+			<p style="text-align:right" !important>	<%=loginMember.getGu_id() %>님 로그인 성공 </p>
+		<% }%>
 		<!-- Wrapper -->
 
 			<div id="wrapper">
