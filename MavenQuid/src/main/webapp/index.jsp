@@ -18,7 +18,6 @@
 					System.out.print(loginMember.getGu_id());
 			%>
 
-			<p style="text-align:right" !important>	<%=loginMember.getGu_name() %>님</p>
 		<%	} %>
 
 		
@@ -43,7 +42,7 @@
 				<%		if(loginMember != null){
 					
 			%>
-			<p style="text-align:center" !important>	<%=loginMember.getGu_name() %>님 로그인 성공</p>
+			<p style="text-align:center" !important><%=loginMember.getGu_name() %>님 로그인 성공</p>
 		<%	} %>
 							<ul>
 								<li><a href="#intro">Intro</a></li>
@@ -138,12 +137,12 @@
 										
 										<div class="field">
 											<label for="address">주소</label>
-											<input type="text" name="address" value="<%=loginMember.getAddress() %>"/>
+											<input type="text" name="address" placeholder="도로명 주소를 입력해주세요" value="<%=loginMember.getAddress() %>"/>
 										</div>
 										
 										<div class="field half">
 											<label>휴대폰</label> 
-											<input type="text" name="phone" value="<%=loginMember.getPhone() %>" />
+											<input type="text" name="phone" placeholder=" - 없이 입력 하세요" value="<%=loginMember.getPhone() %>" />
 										</div>
 										
 										<div class="field half">
@@ -199,12 +198,12 @@
 										
 										<div class="field">
 											<label for="address">주소</label>
-											<input type="text" name="address" />
+											<input type="text"  placeholder="도로명 주소를 입력해주세요"name="address" />
 										</div>
 										
 										<div class="field half">
 											<label>휴대폰</label> 
-											<input type="text" name="phone" />
+											<input type="text" placeholder=" - 없이 입력 하세요" name="phone" />
 										</div>
 										
 										<div class="field half">
@@ -214,7 +213,7 @@
 										
 										<div class="field half">
 											<label>생년월일</label> 
-											<input type="text" name="gu_job" />
+											<input type="text" placeholder="0000-00-00" name="gu_job" />
 										</div>
 										
 										<div class="field half">
