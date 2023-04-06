@@ -21,4 +21,7 @@
 		delete from Guardian where gu_id=#{gu_id}
 	</delete>
 		
+	<select id="selectOne" parameterType="String" resultType="WebMember1">
+		select * from Guardian where gu_id=#{gu_id}
+	</select>
 </mapper>

@@ -59,11 +59,11 @@ public class WebMemberDAO {
 		}
 		
 		//개인회원정보 불러오기
-		public int updatePro(String gu_id) {
+		public WebMember1 selectOne(String gu_id) {
 			SqlSession sqlSession = sessionFactory.openSession(true);
-			int cnt = sqlSession.update("updatePro", gu_id);
+			WebMember1 member = sqlSession.selectOne("selectOne", gu_id);
 			sqlSession.close();
-			return cnt;
+			return member;
 		}
 		
 		

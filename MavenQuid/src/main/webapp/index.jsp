@@ -17,7 +17,7 @@
 				if(loginMember != null){
 					System.out.print(loginMember.getGu_id());
 			%>
-			<p style="text-align:right" !important>	<%=loginMember.getGu_name() %>님 로그인 성공</p>
+			<p style="text-align:right" !important>	<%=loginMember.getGu_name() %>님</p>
 		<%	} %>
 		<!-- Wrapper -->
 			<div id="wrapper">
