@@ -17,12 +17,17 @@
 				if(loginMember != null){
 					System.out.print(loginMember.getGu_id());
 			%>
+
 			<p style="text-align:right" !important>	<%=loginMember.getGu_name() %>님</p>
 		<%	} %>
-		<!-- Wrapper -->
-			<div id="wrapper">
 
+		
+		<!-- Wrapper -->
+
+			<div id="wrapper">
+					
 				<!-- Header -->
+				
 					<header id="header">
 						<div class="logo">
 							<img src = images/logo_1.png >
@@ -44,6 +49,7 @@
 								<li><a href="#intro">Intro</a></li>
 								<li><a href="#work">Work</a></li>
 								<li><a href="#about">About</a></li>
+								
 								<% if(loginMember == null){ %>
 										<li> <a href="#login">로그인</a> </li>
 									<% } else {
@@ -152,7 +158,9 @@
 										
 										<div class="field half">
 											<label>성별</label> 
-											<input type="text" name="gender" value="<%=loginMember.getGender() %>"/>
+											<input type='checkbox' name='gender' value='female' />여성
+  											<input type='checkbox' name='gender' value='male' />남성
+										
 										</div>
 										
 										<div class="field half">
@@ -162,7 +170,7 @@
 										
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="정보수정" class="button fit"></li>
+										<li><input type="submit" value="정보수정" class="submit-btn"></li>
 									</ul>
 								</form>
 								
@@ -221,7 +229,7 @@
 										
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="회원가입" class="button fit"></li>
+										<li><input type="submit" value="회원가입" class="submit-btn"></li>
 									</ul>
 								</form>
 								
