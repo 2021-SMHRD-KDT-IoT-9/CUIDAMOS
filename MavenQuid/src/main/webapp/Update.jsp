@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.WebMemberDAO"%>
 <%@page import="com.smhrd.model.WebMember1"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,11 +14,9 @@
 		String gu_id = request.getParameter("gu_id");
 		WebMemberDAO dao = new WebMemberDAO();		
 		
-		
-		
 	%>
 	
-	<%-- 	<h2 class="major">정보수정</h2>
+	 	<%-- <h2 class="major">정보수정</h2>
 		<form method="post" action="UpdateService">
 			<div class="fields">
 
@@ -64,7 +63,7 @@
 			<ul class="actions">
 				<li><input type="submit" value="정보수정" class="button fit"></li>
 			</ul>
-		</form> --%>
+		</form>  --%>
 
 	
 </body>

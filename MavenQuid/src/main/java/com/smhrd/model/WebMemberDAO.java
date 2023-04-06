@@ -59,8 +59,13 @@ public class WebMemberDAO {
 		}
 		
 		//개인회원정보 불러오기
-	
+		public int updatePro(String gu_id) {
+			SqlSession sqlSession = sessionFactory.openSession(true);
+			int cnt = sqlSession.update("updatePro", gu_id);
+			sqlSession.close();
+			return cnt;
 		}
+		
 		
 
 		
@@ -80,3 +85,4 @@ public class WebMemberDAO {
 
 //		}
 
+}

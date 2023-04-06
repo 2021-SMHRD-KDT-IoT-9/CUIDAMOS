@@ -41,7 +41,7 @@
 								<td><%=list.get(i).getAddress() %></td>
 								<!-- url에 데이터를 실어서 보내는 방법을 뭐라고 할까요? 쿼리스트링 -->
 								<!-- url?name=value&name=value&name=value -->
-								<td><a href="UpdateService2?gu_id=<%=list.get(i).getGu_id() %>">수정</a></td>
+								<td><a href="Update.jsp?gu_id=<%=list.get(i).getGu_id() %>">수정</a></td>
 								<td><a href="DeleteService?gu_id=<%=list.get(i).getGu_id() %>">삭제</a></td>
 							</tr>
 							<%} %> 
