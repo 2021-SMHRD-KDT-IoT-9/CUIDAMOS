@@ -6,10 +6,21 @@ import java.net.*;
 
 public class Message_System {
 		public static void main(String[] args) throws IOException {
-			MemberDTO dto = null;
-			MemberDAO dao = new MemberDAO();
 			
-			dto.getGU_ID();
+			String furniture = "a0001";
+
+			
+						
+			MemberDAO dao = new MemberDAO();
+			MemberDTO dto = dao.connection(furniture);
+			
+			String gu_id = dto.getGU_ID();
+			String gu_name = dto.getGU_NAME();
+			String address = dto.getAddress();
+			
+			
+			
+			
 			String url = "https://directsend.co.kr/index.php/api_v2/sms_change_word";		// URL
 
 			java.net.URL obj;
@@ -54,16 +65,20 @@ public class Message_System {
 			/* 여기서부터 수정해주시기 바랍니다. */
 			
 			String title = "희경이바보";
-			String message = "바보 ";            //필수입력
+			String message ="{\"성함\": \""+gu_name+"\", \"주소\":\""+address+"로 확인 부탁드립니다.\"}" ;                  //필수입력
 			String sender = "01064246895";                  //필수입력
-			String username = "ndn153";              //필수입력
+			String username = gu_id;              //필수입력
 			String key = "ycmTnGo5CgI2P1J";          //필수입력
 
 			//수신자 정보 추가 - 필수 입력(주소록 미사용시), 치환문자 미사용시 치환문자 데이터를 입력하지 않고 사용할수 있습니다.
 			//치환문자 미사용시 {\"mobile\":\"01000000001\"} 번호만 입력 해주시기 바랍니다.
-			String receiver = "{\"name\": \"손동연\", \"mobile\":\"01097972326\", \"note1\":\"\", \"note2\":\"\", \"note3\":\"\", \"note4\":\"\", \"note5\":\"\"}"
-				+ ",{\"name\": \"홍길동\", \"mobile\":\"수신자번호\", \"note1\":\"다이렉트센드 2\", \"note2\":\"다이렉트센드 3\", \"note3\":\"다이렉트센드 4\", \"note4\":\"다이렉트센드 5\", \"note5\":\"다이렉트센드 6\"}"
-			;
+//			String receiver = "{\"name\": \""+gu_name+"\", \"mobile\":\""+phone+"\"note1\":\"\", \"note2\":\"\", \"note3\":\"\", \"note4\":\"\", \"note5\":\"\"}"
+//				+ ",{\"name\": \"홍길동\", \"mobile\":\"수신자번호\", \"note1\":\"다이렉트센드 2\", \"note2\":\"다이렉트센드 3\", \"note3\":\"다이렉트센드 4\", \"note4\":\"다이렉트센드 5\", \"note5\":\"다이렉트센드 6\"}"
+//			;
+//			
+	        String receiver = "{\"name\": \"손동연\", \"mobile\":\"01097972326\", \"note1\":\"\", \"note2\":\"\", \"note3\":\"\", \"note4\":\"\", \"note5\":\"\"}"
+	                + ",{\"name\": \"홍길동\", \"mobile\":\"수신자번호\", \"note1\":\"다이렉트센드 2\", \"note2\":\"다이렉트센드 3\", \"note3\":\"다이렉트센드 4\", \"note4\":\"다이렉트센드 5\", \"note5\":\"다이렉트센드 6\"}"
+	             ;
 
 			receiver = "["+ receiver +"]";
 
