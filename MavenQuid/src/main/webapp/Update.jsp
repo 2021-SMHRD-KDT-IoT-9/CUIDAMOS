@@ -47,8 +47,8 @@
 				</div>
 
 				<div class="field half">
-					<label>주민번호</label> <input type="text" name="birth"
-						value="<%=member.getBirth() %>" /> - XXXXXXX
+					<label>생년월일</label> <input type="text" name="birth" placeholder="0000-00-00" 
+						value="<%=member.getBirth() %>" />
 						
 				</div>
 				<br>
@@ -59,8 +59,13 @@
 				</div>
 
 				<div class="field half">
-					<label>성별</label> <input type="radio" name="gender"
+					<label>성별</label> <input type="text" name="gender"
 						value="<%=member.getGender() %>" />
+				</div>
+				
+				<div class="field half">
+					<label>아두이노번호</label> <input type="text" name="furniture"
+						value="<%=member.getFurniture() %>" />
 				</div>
 
 			</div>
@@ -105,6 +110,8 @@
 			}
 			
 		</script>
+		
+		
 	
 </body>
 </html>

@@ -24,4 +24,9 @@
 	<select id="selectOne" parameterType="String" resultType="WebMember1">
 		select * from Guardian where gu_id=#{gu_id}
 	</select>
+	
+	<select id="stateManager" parameterType="StateManagerDTO" resultType="StateManagerDTO">
+		select * from state_manager		
+	</select>
+	
 </mapper>

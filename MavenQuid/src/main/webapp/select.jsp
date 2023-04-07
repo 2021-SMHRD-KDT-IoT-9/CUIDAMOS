@@ -19,11 +19,11 @@
 				System.out.print(list.get(0).getGu_id());
 		%>
 	
-	<body style="text-align: center;">
+	<body style="text-align: center">
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<!-- Menu -->
-					<nav id="Update">	
+					<nav>	
 						<table>
 							<caption><h2>회원관리페이지</h2></caption>
 							<tr>
