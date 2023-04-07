@@ -5,7 +5,8 @@ public class MemberDTO {
 	private String GU_ID;
 	private String GU_NAME;
 	private String PHONE;
-	private String funiture;
+	private String furniture;
+	private String address;
 	
 	public String getGU_ID() {
 		return GU_ID;
@@ -17,20 +18,27 @@ public class MemberDTO {
 		return PHONE;
 	}
 	public String getFurniture() {
-		return funiture;
+		return furniture;
 	}
-	public MemberDTO(String gU_ID, String gU_NAME, String pHONE, String funiture) {
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public MemberDTO(String Gu_ID, String Gu_NAME, String pHONE, String furniture, String address) {
 		super();
-		GU_ID = gU_ID;
+		GU_ID = Gu_ID;
+		GU_NAME = Gu_NAME;
+		PHONE = pHONE;
+		this.furniture = furniture;
+		this.address = address;
+	}
+	public MemberDTO(String gU_NAME, String pHONE, String furniture, String address) {
+		super();
 		GU_NAME = gU_NAME;
 		PHONE = pHONE;
-		this.funiture = funiture;
-	}
-	public MemberDTO(String gU_NAME, String pHONE, String funiture) {
-		super();
-		GU_NAME = gU_NAME;
-		PHONE = pHONE;
-		this.funiture = funiture;
+		this.furniture = furniture;
+		this.address = address;
 	}
 	
 	
