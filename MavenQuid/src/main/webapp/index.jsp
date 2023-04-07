@@ -16,10 +16,7 @@
 				
 				if(loginMember != null){
 					System.out.print(loginMember.getGu_id());
-			%>
-
-			<p style="text-align:right" !important>	<%=loginMember.getGu_name() %>님</p>
-		<%	} %>
+		} %>
 
 		
 		<!-- Wrapper -->
@@ -43,9 +40,10 @@
 				<%		if(loginMember != null){
 					
 			%>
-			<p style="text-align:center" !important>	<%=loginMember.getGu_name() %>님 로그인 성공</p>
+			<p style="text-align:center" !important>	<%=loginMember.getGu_name() %>님 로그인</p>
 		<%	} %>
 							<ul>
+								<% if(loginMember != null) %>
 								<li><a href="#intro">Intro</a></li>
 								<li><a href="#work">Work</a></li>
 								<li><a href="#about">About</a></li>
@@ -143,7 +141,7 @@
 										
 										<div class="field half">
 											<label>휴대폰</label> 
-											<input type="text" name="phone" value="<%=loginMember.getPhone() %>" />
+											<input type="text" name="phone" value="<%=loginMember.getPhone() %>" id="phoneNum" />
 										</div>
 										
 										<div class="field half">
@@ -158,8 +156,8 @@
 										
 										<div class="field half">
 											<label>성별</label> 
-											<input type='checkbox' name='gender' value='female' />여성
-  											<input type='checkbox' name='gender' value='male' />남성
+											<input type='text' name='gender' value="<%=loginMember.getGender() %>" />
+  										
 										
 										</div>
 										
@@ -204,7 +202,7 @@
 										
 										<div class="field half">
 											<label>휴대폰</label> 
-											<input type="text" name="phone" />
+											<input type="text" name="phone" id="phoneNum"/>
 										</div>
 										
 										<div class="field half">
@@ -488,6 +486,44 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+				<script>
+			var autoHypen = function(str){
+				str=str.replace(/[^0-9]/g, '');
+				var tmp = '';
+				if(str.length<4){
+					return str;
+				}else if(str.length<7){
+					tmp += str.substr(0, 3);
+					tmp += '-';
+					tmp += str.substr(3);
+					return tmp;
+				}else if(str.length<11){
+					tmp += str.substr(0,3);
+					tmp += '-';
+					tmp += str.substr(3,3);
+					tmp += '-';
+					tmp += str.substr(6);
+					return tmp;
+				}else{
+					tmp += str.substr(0,3);
+					tmp += '-';
+					tmp += str.substr(3,4);
+					tmp += '-';
+					tmp += str.substr(7);
+					return tmp;
+				}
+				return str;
+			}
+			
+			var phoneNum = document.getElementById('phoneNum');
+			
+			phoneNum.onkeyup = function(){
+				console.log(this.value);
+				this.value=autoHypen(this.value);
+			}
+			
+		</script>
 
 	</body>
 </html>
