@@ -94,9 +94,9 @@ input, select, textarea {
 		box-sizing: border-box;
 	}
 
-	*, *:before, *:after {
+ 	*, *:before, *:after {
 		box-sizing: inherit;
-	}
+	} 
 	
 	/* 메인배경색 */
 	body {
@@ -175,7 +175,7 @@ input, select, textarea {
 		font-style: italic;
 	}
 
-	p {
+	 p {
 		margin: 0 0 2rem 0;
 	}
 
@@ -184,7 +184,7 @@ input, select, textarea {
 		color: #7f5539;
 		font-weight: 600;
 		line-height: 1.5;
-		margin: 0 0 1rem 0;
+		 margin: 0 0 1rem 0; 
 		text-transform: uppercase;
 		letter-spacing: 0.2rem;
 	}
@@ -194,17 +194,17 @@ input, select, textarea {
 			text-decoration: none;
 		}
 
-		h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
+		h1.major, h3.major, h4.major, h5.major, h6.major {
 			/* 상세 페이지 내 영역*/
 			border-bottom: solid 6px #D0B49F;
-			width: -moz-max-content;
+			 width: -moz-max-content;
 			width: -webkit-max-content;
 			width: -ms-max-content;
-			width: max-content;
+			width: max-content; 
 			padding-bottom: 0.5rem;
 			margin: 0 0 2rem 0;
 		}
-
+	
 	h1 {
 		font-size: 2.25rem;
 		line-height: 1.3;
@@ -322,8 +322,8 @@ input, select, textarea {
 			margin-top: 0px;
 			margin-bottom: 40px;
 		}
-/* 
-		form > .fields {
+
+		/* form > .fields {
 			display: -moz-flex;
 			display: -webkit-flex;
 			display: -ms-flex;
@@ -335,7 +335,7 @@ input, select, textarea {
 			width: calc(100% + 3rem);
 			margin: -1.5rem 0 2rem -1.5rem;
 			
-		} */
+		}  */
 
 
 			
@@ -427,12 +427,56 @@ input, select, textarea {
 
 /* Image */
 
-	.image {
+ 	.image {
 		border-radius: px;
 		border: 0;
 		display: inline-block;
 		position: relative;
 	}
+			.image img {
+			border-radius: 4px;
+			display: block;
+		}
+
+		.image.left, .image.right {
+			max-width: 40%;
+		}
+
+			.image.left img, .image.right img {
+				width: 100%;
+			}
+
+		.image.left {
+			float: left;
+			padding: 0 1.5em 1em 0;
+			top: 0.25em;
+		}
+
+		.image.right {
+			float: right;
+			padding: 0 0 1em 1.5em;
+			top: 0.25em;
+		}
+
+		.image.fit {
+			display: block;
+			margin: 0 0 2rem 0;
+			width: 100%;
+		}
+
+			.image.fit img {
+				width: 100%;
+			}
+
+		.image.main {
+			display: block;
+			margin: 2.5rem 0;
+			width: 100%;
+		}
+
+			.image.main img {
+				width: 100%;
+			} */
 
 /* List */
 
@@ -452,9 +496,9 @@ input, select, textarea {
 		padding-left: 1em;
 	}
 
-	/* 	ul li {
+	 	ul li {
 			padding-left: 0.5em;
-		} */
+		} 
 
 		ul.alt {
 			list-style: none;
@@ -494,10 +538,7 @@ input, select, textarea {
 	
 	} 
 
-		/* ul.actions li {
-			padding: 0 0 0 1rem;
-			vertical-align: middle;
-		} */
+	
 
 		ul.actions.special {
 			-moz-justify-content: center;
@@ -506,7 +547,7 @@ input, select, textarea {
 			justify-content: center;
 			width: 100%;
 			margin-left: 0;
-		}
+		} 
 
 			ul.actions.special li:first-child {
 				padding-left: 0;
@@ -774,8 +815,8 @@ input, select, textarea {
 			/*  logo 밑 분리선  */
 			border-style: solid;
 			border-color: #D0B49F;
-			border-top-width: 9px;
-			border-bottom-width: 9px;
+		 	border-top-width: 9px;
+			border-bottom-width: 9px; 
 			max-width: 100%;
 		}
 
@@ -1099,6 +1140,7 @@ input, select, textarea {
 		max-width: 100%;
 		margin-top: 2rem;
 		text-align: center;
+		font-sixe : 10pt
 	}
 
 		#footer .copyright {

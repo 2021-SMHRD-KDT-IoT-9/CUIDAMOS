@@ -48,6 +48,8 @@
 						</table>
 					</nav>		
 					<a href="index.jsp" class="button next scrolly">되돌아가기</a>	
+					
+					<a href="sensor.jsp" class="button next scrolly">회원상태메뉴</a>
 			</div>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

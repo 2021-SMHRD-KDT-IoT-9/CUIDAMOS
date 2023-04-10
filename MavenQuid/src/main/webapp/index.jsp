@@ -51,12 +51,9 @@
          <p style="text-align:center" !important><%=loginMember.getGu_name() %>님 로그인</p>
       <%   } %>
                      <ul>
-                        <% if(loginMember == null){ %>
-                     
-                           <li><a href="#intro">Intro</a></li>
-                           <li><a href="#content">Content</a></li>
-                           <li><a href="#about">About</a></li>                       
+                        <% if(loginMember == null){ %>                 
                             <li> <a href="#login">로그인</a> </li>
+                            <li> <a href="#join">회원가입</a> </li>
                         <% } else {
                             if(loginMember.getGu_id().equals("admin")){ %>
                                 <li> <a href="stateManager.jsp">이용자 정보 확인</a></li>
@@ -102,7 +99,9 @@
                      <article id="content">
                         <h2 class="major">Content</h2>
                         
-                        <span class="image main"><img src=images/content.jpt /></span>
+
+                        <span class="image main"><img src=images/content.jpg /></span>
+
                  
                         
                      </article>
@@ -121,7 +120,7 @@
                            <input type="text" name="gu_id" class="text-field" placeholder="아이디를 입력하세요">
                            <input type="password" name="pw" class="text-field" placeholder="비밀번호를 입력하세요">
                            <input type="submit" value="로그인" class="submit-btn">
-                           <a href="#join"><input type="button" value="회원가입" class="submit-btn" /></a>
+                           
                           </form>
                      </article>
 
@@ -158,7 +157,7 @@
 
                      <div class="field half">
                         <label>생년월일</label> <input type="text" name="birth"
-                           placeholder="0000-00-00" value="<%=loginMember.getBirth()%>" />
+                           placeholder="0000-00-00" value="<%=loginMember.getBirth()%>" id="birthNum"/>
    
                      </div>
                      <br>
@@ -225,7 +224,7 @@
                               
                               <div class="field half">
                                  <label>생년월일</label> 
-                                 <input type="text" placeholder="0000-00-00" name="gu_job" />
+                                 <input type="text" placeholder="0000-00-00" name="gu_job" id="birthNum"/>
                               </div>
                               
                               <div class="field half">
@@ -538,6 +537,36 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
          
       </script>
       
+      <script>
+			var autoHypen2 = function(str2){
+				str2=str2.replace(/[^0-9]/g, '');
+				var tmp = '';
+				if(str2.length<4){
+					return str;
+				}else if(str2.length<7){
+					tmp += str2.substr(0, 4);
+					tmp += '-';
+					tmp += str2.substr(4);
+					return tmp;
+				}else{
+					tmp += str2.substr(0,4);
+					tmp += '-';
+					tmp += str2.substr(4,2);
+					tmp += '-';
+					tmp += str2.substr(6);
+					return tmp;
+				}
+				return str2;
+			}
+			
+			var birthNum = document.getElementById('birthNum');
+			
+			birthNum.onkeyup = function(){
+				console.log(this.value);
+				this.value=autoHypen2(this.value);
+			}
+			
+		</script>      
       
 
    </body>
