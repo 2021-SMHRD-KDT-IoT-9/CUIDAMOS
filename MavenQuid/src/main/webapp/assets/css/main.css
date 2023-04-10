@@ -175,7 +175,7 @@ input, select, textarea {
 		font-style: italic;
 	}
 
-	p {
+	 p {
 		margin: 0 0 2rem 0;
 	}
 
@@ -322,8 +322,8 @@ input, select, textarea {
 			margin-top: 0px;
 			margin-bottom: 40px;
 		}
-/* 
-		form > .fields {
+
+		/* form > .fields {
 			display: -moz-flex;
 			display: -webkit-flex;
 			display: -ms-flex;
@@ -335,7 +335,7 @@ input, select, textarea {
 			width: calc(100% + 3rem);
 			margin: -1.5rem 0 2rem -1.5rem;
 			
-		} */
+		}  */
 
 
 			
@@ -774,8 +774,8 @@ input, select, textarea {
 			/*  logo 밑 분리선  */
 			border-style: solid;
 			border-color: #D0B49F;
-			border-top-width: 9px;
-			border-bottom-width: 9px;
+		 	border-top-width: 9px;
+			border-bottom-width: 9px; 
 			max-width: 100%;
 		}
 
