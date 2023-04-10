@@ -48,7 +48,7 @@
 
 				<div class="field half">
 					<label>생년월일</label> <input type="text" name="birth" placeholder="0000-00-00" 
-						value="<%=member.getBirth() %>" />
+						value="<%=member.getBirth() %>" id="birthNum" />
 						
 				</div>
 				<br>
@@ -111,6 +111,36 @@
 			
 		</script>
 		
+		<script>
+			var autoHypen2 = function(str){
+				str=str.replace(/[^0-9]/g, '');
+				var tmp = '';
+				if(str.length<4){
+					return str;
+				}else if(str.length<7){
+					tmp += str.substr(0, 4);
+					tmp += '-';
+					/* tmp += str.substr(2); */
+					return tmp;
+				}else{
+					tmp += str.substr(0,4);
+					tmp += '-';
+					tmp += str.substr(4,2);
+					tmp += '-';
+					/* tmp += str.substr(2); */
+					return tmp;
+				}
+				return str;
+			}
+			
+			var birthNum = document.getElementById('birthNum');
+			
+			birthNum.onkeyup = function(){
+				console.log(this.value);
+				this.value=autoHypen2(this.value);
+			}
+			
+		</script>
 		
 	
 </body>
