@@ -48,7 +48,7 @@
 
 				<div class="field half">
 					<label>생년월일</label> <input type="text" name="birth" placeholder="0000-00-00" 
-						value="<%=member.getBirth() %>" id="birthNum" />
+						value="<%=member.getBirth() %>" id="birthNum">
 						
 				</div>
 				<br>
@@ -112,25 +112,25 @@
 		</script>
 		
 		<script>
-			var autoHypen2 = function(str){
-				str=str.replace(/[^0-9]/g, '');
+			var autoHypen2 = function(str2){
+				str2=str2.replace(/[^0-9]/g, '');
 				var tmp = '';
-				if(str.length<4){
+				if(str2.length<4){
 					return str;
-				}else if(str.length<7){
-					tmp += str.substr(0, 4);
+				}else if(str2.length<7){
+					tmp += str2.substr(0, 4);
 					tmp += '-';
-					/* tmp += str.substr(2); */
+					tmp += str2.substr(4);
 					return tmp;
 				}else{
-					tmp += str.substr(0,4);
+					tmp += str2.substr(0,4);
 					tmp += '-';
-					tmp += str.substr(4,2);
+					tmp += str2.substr(4,2);
 					tmp += '-';
-					/* tmp += str.substr(2); */
+					tmp += str2.substr(6);
 					return tmp;
 				}
-				return str;
+				return str2;
 			}
 			
 			var birthNum = document.getElementById('birthNum');

@@ -156,7 +156,7 @@
 
 							<div class="field half">
 								<label>생년월일</label> <input type="text" name="birth"
-									placeholder="0000-00-00" value="<%=loginMember.getBirth()%>" />
+									placeholder="0000-00-00" id="birthNum" value="<%=loginMember.getBirth()%>" />
 	
 							</div>
 							<br>
@@ -223,7 +223,7 @@
                               
                               <div class="field half">
                                  <label>생년월일</label> 
-                                 <input type="text" placeholder="0000-00-00" name="gu_job" />
+                                 <input type="text" placeholder="0000-00-00" name="gu_job" id="birthNum"/>
                               </div>
                               
                               <div class="field half">
@@ -532,6 +532,37 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			phoneNum.onkeyup = function(){
 				console.log(this.value);
 				this.value=autoHypen(this.value);
+			}
+			
+		</script>
+		
+		<script>
+			var autoHypen2 = function(str2){
+				str2=str2.replace(/[^0-9]/g, '');
+				var tmp = '';
+				if(str2.length<4){
+					return str;
+				}else if(str2.length<7){
+					tmp += str2.substr(0, 4);
+					tmp += '-';
+					tmp += str2.substr(4);
+					return tmp;
+				}else{
+					tmp += str2.substr(0,4);
+					tmp += '-';
+					tmp += str2.substr(4,2);
+					tmp += '-';
+					tmp += str2.substr(6);
+					return tmp;
+				}
+				return str2;
+			}
+			
+			var birthNum = document.getElementById('birthNum');
+			
+			birthNum.onkeyup = function(){
+				console.log(this.value);
+				this.value=autoHypen2(this.value);
 			}
 			
 		</script>
