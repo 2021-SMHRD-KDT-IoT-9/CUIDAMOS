@@ -48,8 +48,16 @@
 	    <artifactId>mybatis</artifactId>
 	    <version>3.5.6</version>
 	</dependency>
-
+<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
     
+    
+    <!-- https://mvnrepository.com/artifact/org.json/json -->
+	<dependency>
+	    <groupId>org.json</groupId>
+	    <artifactId>json</artifactId>
+	    <version>20230227</version>
+	</dependency>
+
   </dependencies>
 
   <build>

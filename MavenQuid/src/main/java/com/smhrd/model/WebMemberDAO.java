@@ -66,6 +66,14 @@ public class WebMemberDAO {
 			return member;
 		}
 		
+		//stateManager 불러오기
+		public List<StateManagerDTO> stateManager(){
+			SqlSession sqlSession = sessionFactory.openSession(true);
+			List<StateManagerDTO> list = sqlSession.selectList("stateManager");
+			sqlSession.close();
+			return list;
+		}
+		
 		
 
 		

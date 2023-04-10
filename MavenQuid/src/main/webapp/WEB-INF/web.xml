@@ -46,6 +46,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.UpdateService2</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>stateManagerDTO</servlet-name>
+  	<display-name>stateManagerDTO</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.model.stateManagerDTO</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinService</servlet-name>
   	<url-pattern>/JoinService</url-pattern>
@@ -73,5 +79,9 @@
   <servlet-mapping>
   	<servlet-name>UpdateService2</servlet-name>
   	<url-pattern>/UpdateService2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>stateManagerDTO</servlet-name>
+  	<url-pattern>/stateManagerDTO</url-pattern>
   </servlet-mapping>
 </web-app>
