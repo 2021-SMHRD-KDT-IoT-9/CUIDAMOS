@@ -13,17 +13,17 @@
    <body class="is-preload">
       <%
          //session 값 가져오기
-      	 System.out.println(session.getAttribute("loginMember")); 
+          System.out.println(session.getAttribute("loginMember")); 
       
-      	 WebMember1 loginMember = null;
+          WebMember1 loginMember = null;
       
-      	 if(session.getAttribute("loginMember")!=null){
-      		 
-      		loginMember = (WebMember1)session.getAttribute("loginMember");
-      		
-      	 };
-      	 
-      	 
+          if(session.getAttribute("loginMember")!=null){
+             
+            loginMember = (WebMember1)session.getAttribute("loginMember");
+            
+          };
+          
+          
       %>
 
       
@@ -41,7 +41,7 @@
                   <div class="content">
                      <div class="inner">
                         <h1>고독사에서 당신을 구하다</h1>
-                        <p>우리는 어쩌고 저쩌고를 지원해 줄거야 너는 그냥 써</p>
+                        <p>외로운 당신의 손을 저희가 잡아드리겠습니다</p>
                      </div>
                   </div>
                   <nav>
@@ -53,19 +53,19 @@
                      <ul>
                         <% if(loginMember == null){ %>
                      
-	                        <li><a href="#intro">Intro</a></li>
-	                        <li><a href="#work">Work</a></li>
-	                        <li><a href="#about">About</a></li>                       
+                           <li><a href="#intro">Intro</a></li>
+                           <li><a href="#content">Content</a></li>
+                           <li><a href="#about">About</a></li>                       
                             <li> <a href="#login">로그인</a> </li>
                         <% } else {
                             if(loginMember.getGu_id().equals("admin")){ %>
-                       	      <li> <a href="stateManager.jsp">센서확인</a></li>
-                              <li> <a href="select.jsp">회원정보확인</a> </li>
+                                <li> <a href="stateManager.jsp">이용자 정보 확인</a></li>
+                              <li> <a href="select.jsp">회원정보 확인</a> </li>
                               <li> <a href="LogoutService">로그아웃</a> </li>
                               <%}else{ %>
                               <li><a href="#intro">Intro</a></li>
-		                      <li><a href="#work">Work</a></li>
-		                      <li><a href="#about">About</a></li>    
+                            <li><a href="#content">Content</a></li>
+                            <li><a href="#about">About</a></li>    
                               <li> <a href="#update">정보수정</a> </li>
                               <li> <a href="LogoutService">로그아웃</a> </li>
                            <% }} %>
@@ -79,8 +79,9 @@
 
                   <!-- Intro -->
                      <article id="intro">
-                        <h2 class="major">Intro</h2>
-                        <p >당신의 안전과 행복을 위해, 저희는 고독사 대처 및 예방 IoT 프로젝트를 진행하고 있습니다. 
+                        <h2 class="major">intro</h2>
+                       
+                        <!-- <p >당신의 안전과 행복을 위해, 저희는 고독사 대처 및 예방 IoT 프로젝트를 진행하고 있습니다. 
                            이 프로젝트는 응급상황에 대처할 수 없는 독거노인분들이나 혼자 생활하는 사람들을 위해, 
                            생활 공간에서 벌어지는 긴급 상황을 감지하고 조치를 취할 수 있는 시스템을 구축하는 것을 목표로 만들어진 프로젝트입니다. </p>
                         
@@ -94,14 +95,15 @@
                               저희는 "고독사에서 당신을 구하다"는 모토를 가지고 있습니다. 고독사는 요즘 사회에서 대두되는 고민거리입니다. 하지만 우리는 이 고민거리를 함께 극복할 수 있습니다. 
                               저희의 IoT 기술은 당신들의 안전과 행복을 지켜드리며,  사용자들이 편안한 생활을 할 수 있도록 도우미가 되어 드립니다.
                               저희와 함께, 삶의 가치를 지켜나갈 수 있는 Cuidamos 제품을 체험해보세요. </p>
-                        
+                         -->
                      </article>
 
-                  <!-- Work -->
-                     <article id="work">
-                        <h2 class="major">Work</h2>
-                        <span class="image main"><img src="" alt="" /></span>
-                        <p>소개글</p>
+                  <!-- content -->
+                     <article id="content">
+                        <h2 class="major">Content</h2>
+                        
+                        <span class="image main"><img src=images/content.jpt /></span>
+                 
                         
                      </article>
 
@@ -154,30 +156,30 @@
                                  <input type="text" name="phone" placeholder=" - 없이 입력 하세요" value="<%=loginMember.getPhone() %>" id="phoneNum"/>
                               </div>
 
-							<div class="field half">
-								<label>생년월일</label> <input type="text" name="birth"
-									placeholder="0000-00-00" id="birthNum" value="<%=loginMember.getBirth()%>" />
-	
-							</div>
-							<br>
-	
-							<div class="field half">
-								<label></label> <input type="hidden" name="gu_job"
-									value="<%=loginMember.getGu_job()%>" />
-							</div>
-	
-							<div class="field half">
-								<label></label> <input type="hidden" name="gender"
-									value="<%=loginMember.getGender()%>" />
-							</div>
-	
-							<div class="field half">
-								<label></label> <input type="hidden" name="furniture"
-									value="<%=loginMember.getFurniture()%>" />
-							</div>
+                     <div class="field half">
+                        <label>생년월일</label> <input type="text" name="birth"
+                           placeholder="0000-00-00" value="<%=loginMember.getBirth()%>" />
+   
+                     </div>
+                     <br>
+   
+                     <div class="field half">
+                        <label></label> <input type="hidden" name="gu_job"
+                           value="<%=loginMember.getGu_job()%>" />
+                     </div>
+   
+                     <div class="field half">
+                        <label></label> <input type="hidden" name="gender"
+                           value="<%=loginMember.getGender()%>" />
+                     </div>
+   
+                     <div class="field half">
+                        <label></label> <input type="hidden" name="furniture"
+                           value="<%=loginMember.getFurniture()%>" />
+                     </div>
 
 
-					</div>
+               </div>
                            <ul class="actions">
                               <li><input type="submit" value="정보수정" class="submit-btn"></li>
                            </ul>
@@ -223,7 +225,7 @@
                               
                               <div class="field half">
                                  <label>생년월일</label> 
-                                 <input type="text" placeholder="0000-00-00" name="gu_job" id="birthNum"/>
+                                 <input type="text" placeholder="0000-00-00" name="gu_job" />
                               </div>
                               
                               <div class="field half">
@@ -274,7 +276,7 @@ while (!deck.isInOrder()) {
 print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                         </section>
 
-                        <section>
+                      <!--   <section>
                            <h3 class="major">Lists</h3>
 
                            <h4>Unordered</h4>
@@ -477,13 +479,13 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                            </form>
                         </section>
 
-                     </article>
+                     </article> -->
 
                </div>
 
             <!-- Footer -->
                <footer id="footer">
-                  <p class="copyright">&copy; by Design CUIDAMOS </p>
+                  <p class="copyright">&copy; by Design CUIDAMOS <br><br> 대표연락처 : 080-0000-0000</p>
                </footer>
 
          </div>
@@ -498,76 +500,45 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
          <script src="assets/js/util.js"></script>
          <script src="assets/js/main.js"></script> 
          
-         	<script>
-			var autoHypen = function(str){
-				str=str.replace(/[^0-9]/g, '');
-				var tmp = '';
-				if(str.length<4){
-					return str;
-				}else if(str.length<7){
-					tmp += str.substr(0, 3);
-					tmp += '-';
-					tmp += str.substr(3);
-					return tmp;
-				}else if(str.length<11){
-					tmp += str.substr(0,3);
-					tmp += '-';
-					tmp += str.substr(3,3);
-					tmp += '-';
-					tmp += str.substr(6);
-					return tmp;
-				}else{
-					tmp += str.substr(0,3);
-					tmp += '-';
-					tmp += str.substr(3,4);
-					tmp += '-';
-					tmp += str.substr(7);
-					return tmp;
-				}
-				return str;
-			}
-			
-			var phoneNum = document.getElementById('phoneNum');
-			
-			phoneNum.onkeyup = function(){
-				console.log(this.value);
-				this.value=autoHypen(this.value);
-			}
-			
-		</script>
-		
-		<script>
-			var autoHypen2 = function(str2){
-				str2=str2.replace(/[^0-9]/g, '');
-				var tmp = '';
-				if(str2.length<4){
-					return str;
-				}else if(str2.length<7){
-					tmp += str2.substr(0, 4);
-					tmp += '-';
-					tmp += str2.substr(4);
-					return tmp;
-				}else{
-					tmp += str2.substr(0,4);
-					tmp += '-';
-					tmp += str2.substr(4,2);
-					tmp += '-';
-					tmp += str2.substr(6);
-					return tmp;
-				}
-				return str2;
-			}
-			
-			var birthNum = document.getElementById('birthNum');
-			
-			birthNum.onkeyup = function(){
-				console.log(this.value);
-				this.value=autoHypen2(this.value);
-			}
-			
-		</script>
-		
-		
+            <script>
+         var autoHypen = function(str){
+            str=str.replace(/[^0-9]/g, '');
+            var tmp = '';
+            if(str.length<4){
+               return str;
+            }else if(str.length<7){
+               tmp += str.substr(0, 3);
+               tmp += '-';
+               tmp += str.substr(3);
+               return tmp;
+            }else if(str.length<11){
+               tmp += str.substr(0,3);
+               tmp += '-';
+               tmp += str.substr(3,3);
+               tmp += '-';
+               tmp += str.substr(6);
+               return tmp;
+            }else{
+               tmp += str.substr(0,3);
+               tmp += '-';
+               tmp += str.substr(3,4);
+               tmp += '-';
+               tmp += str.substr(7);
+               return tmp;
+            }
+            return str;
+         }
+         
+         var phoneNum = document.getElementById('phoneNum');
+         
+         phoneNum.onkeyup = function(){
+            console.log(this.value);
+            this.value=autoHypen(this.value);
+         }
+         
+      </script>
+      
+      
 
    </body>
 </html>
