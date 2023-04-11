@@ -1,4 +1,7 @@
 
+<%@page import="com.smhrd.model.StateManagerDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.WebMemberDAO"%>
 <%@page import="com.smhrd.model.WebMember1"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -6,22 +9,24 @@
 <html>
    <head>
       <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" /> -->
       <link rel="stylesheet" href="assets/css/main.css" />
-      <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+      <!-- <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
    </head>
    <body class="is-preload">
       <%
          //session 값 가져오기
-          System.out.println(session.getAttribute("loginMember")); 
-      
+         WebMemberDAO dao = new WebMemberDAO();
+		 List<StateManagerDTO> list = dao.stateManager(); 
+     	 
+		 
           WebMember1 loginMember = null;
-      
+                
           if(session.getAttribute("loginMember")!=null){
-             
+        	  
             loginMember = (WebMember1)session.getAttribute("loginMember");
             
-          };
+            };
           
           
       %>
@@ -56,13 +61,16 @@
                             <li> <a href="#join">회원가입</a> </li>
                         <% } else {
                             if(loginMember.getGu_id().equals("admin")){ %>
-                                <li> <a href="stateManager.jsp">이용자 정보 확인</a></li>
+                              <li> <a href="stateManager.jsp">이용자 정보 확인</a></li>
                               <li> <a href="select.jsp">회원정보 확인</a> </li>
                               <li> <a href="LogoutService">로그아웃</a> </li>
                               <%}else{ %>
-                              <li><a href="#intro">Intro</a></li>
-                            <li><a href="#content">Content</a></li>
-                            <li><a href="#about">About</a></li>    
+                              <li>
+                              
+                              <a href="stateManagerOne.jsp?gu_id=<%=loginMember.getGu_id()%>">내센서확인</a>
+                              </li>
+                            <li><a href="#content">연락처</a></li>
+                            <!-- <li><a href="#about">About</a></li> -->    
                               <li> <a href="#update">정보수정</a> </li>
                               <li> <a href="LogoutService">로그아웃</a> </li>
                            <% }} %>
@@ -74,9 +82,19 @@
             <!-- Main -->
                <div id="main">
 
+               <%--       <article id="intro">
+                        <h2 class="major">내 센서 확인</h2>
                   <!-- Intro -->
-                     <article id="intro">
-                        <h2 class="major">intro</h2>
+                   <%if(loginMember != null) { 
+                   for(int i=0; i<list.size(); i++) {
+            	if(loginMember.getGu_id().equals(list.get(i).getUi_idfk())){
+					
+            		response.sendRedirect("stateManagerOne.jsp");
+					
+					%>
+				
+				<a href="index.jsp" class="button next scrolly"><input type="button" value="되돌아가기" class="submit-btn"></a>
+				<%}} %>
                        
                         <!-- <p >당신의 안전과 행복을 위해, 저희는 고독사 대처 및 예방 IoT 프로젝트를 진행하고 있습니다. 
                            이 프로젝트는 응급상황에 대처할 수 없는 독거노인분들이나 혼자 생활하는 사람들을 위해, 
@@ -94,10 +112,11 @@
                               저희와 함께, 삶의 가치를 지켜나갈 수 있는 Cuidamos 제품을 체험해보세요. </p>
                          -->
                      </article>
+                     <%} %> --%>
 
                   <!-- content -->
                      <article id="content">
-                        <h2 class="major">Content</h2>
+                        <h2 class="major">연락처</h2>
                         
 
                         <span class="image main"><img src=images/content.jpg /></span>
@@ -192,10 +211,12 @@
                      <article id="join">
                         <h2 class="major">회원가입</h2>
                         <form method="post" action="JoinService">
-                           <div class="fields">
-                              <div class="field half">
-                                 <label for="name">아이디</label>
-                                 <input type="text" name="gu_id" id="id" />
+                      
+                        
+                         <div class="fields">
+                              <div class="field half" style="display:inline;">
+                                 <label for="name" style="display:inline-block;">아이디</label>
+                                 <input type="text" name="gu_id" id="id" style="display:inline;">
                               </div>
                               
                               <div class="field half">
@@ -228,8 +249,8 @@
                               </div>
                               
                               <div class="field half">
-                                 <label>성별</label> 
-                                 <input type="text" name="gender" />
+                                 <label>성별   </label> 
+                                 <input type="text" name="gender">
                               </div>
                               
                               <div class="field half">
@@ -237,7 +258,7 @@
                                  <input type="text" name="furniture" />
                               </div>
                               
-                           </div>
+                           </div> 
                            <ul class="actions">
                               <li><input type="submit" value="회원가입" class="submit-btn"></li>
                            </ul>

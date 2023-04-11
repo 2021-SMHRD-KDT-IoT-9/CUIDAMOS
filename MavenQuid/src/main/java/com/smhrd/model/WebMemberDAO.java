@@ -74,6 +74,14 @@ public class WebMemberDAO {
 			return list;
 		}
 		
+		//stateManagerOne 불러오기
+		public StateManagerDTO stateManagerOne(String gu_id) {
+			SqlSession sqlSession = sessionFactory.openSession(true);
+			StateManagerDTO state_dto = sqlSession.selectOne("selectOne", gu_id);
+			sqlSession.close();
+			return state_dto;
+		}
+		
 		
 
 		

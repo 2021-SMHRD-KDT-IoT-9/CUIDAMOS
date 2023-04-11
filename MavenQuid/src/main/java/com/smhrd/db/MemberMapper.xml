@@ -29,4 +29,8 @@
 		select * from state_manager		
 	</select>
 	
+	<select id="stateManagerOne" parameterType="StateManagerDTO" resultType="StateManagerDTO">
+		select * from state_manager where ui_idfk=#{ui_idfk}		
+	</select>
+	
 </mapper>

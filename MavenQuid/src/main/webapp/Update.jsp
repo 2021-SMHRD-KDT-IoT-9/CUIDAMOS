@@ -70,7 +70,7 @@
 
 			</div>
 			<ul class="actions">
-				<li><input type="submit" value="정보수정" class="button fit"></li>
+				<li><input type="submit" value="정보수정" class="submit-btn"></li>
 			</ul>
 		</form>  
 		<script>
