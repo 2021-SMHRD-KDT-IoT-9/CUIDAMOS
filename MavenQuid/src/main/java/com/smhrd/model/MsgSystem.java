@@ -62,14 +62,14 @@ public class MsgSystem {
 	  return encodeBase64String;
 	}
 	
-	private static void sendSMS(MemberDAO dao) {
-		String furniture = "a0001";
-		MemberDTO dto = dao.connection(furniture);
-		String gu_id = dto.getGU_ID();
-		String gu_name = dto.getGU_NAME();
-		String address = dto.getAddress();
-		String phone = dto.getPHONE();
-		
+	public static void sendSMS(MemberDAO dao) {
+//		String furniture = "a0001";
+//		MemberDTO dto = dao.connection(furniture);
+//		String gu_id = dto.getGU_ID();
+//		String gu_name = dto.getGU_NAME();
+//		String address = dto.getAddress();
+//		String phone = dto.getPHONE();
+//		
 		String hostNameUrl = "https://sens.apigw.ntruss.com";     		// 호스트 URL
 		String requestUrl= "/sms/v2/services/";                   		// 요청 URL
 		String requestUrlType = "/messages";                      		// 요청 URL
@@ -88,7 +88,8 @@ public class MsgSystem {
 
 	    //toJson.put("subject","");							// Optional, messages.subject	개별 메시지 제목, LMS, MMS에서만 사용 가능
 	    //toJson.put("content","sms test in spring 111");	// Optional, messages.content	개별 메시지 내용, SMS: 최대 80byte, LMS, MMS: 최대 2000byte
-	    toJson.put("to",phone);						// Mandatory(필수), messages.to	수신번호, -를 제외한 숫자만 입력 가능
+	    toJson.put("to","01093709580"
+	    		+ "");						// Mandatory(필수), messages.to	수신번호, -를 제외한 숫자만 입력 가능
 	    toArr.put(toJson);
 	    
 	    bodyJson.put("type","SMS");							// Madantory, 메시지 Type (SMS | LMS | MMS), (소문자 가능)
@@ -96,7 +97,8 @@ public class MsgSystem {
 	    //bodyJson.put("countryCode","82");					// Optional, 국가 전화번호, (default: 82)
 	    bodyJson.put("from","01097972326");					// Mandatory, 발신번호, 사전 등록된 발신번호만 사용 가능		
 	    //bodyJson.put("subject","");						// Optional, 기본 메시지 제목, LMS, MMS에서만 사용 가능
-	    bodyJson.put("content",gu_name + "님이 위험합니다." + address + "로 가주세요!");	// Mandatory(필수), 기본 메시지 내용, SMS: 최대 80byte, LMS, MMS: 최대 2000byte
+//	    bodyJson.put("content",gu_name + "님이 위험합니다." + address + "로 가주세요!");	// Mandatory(필수), 기본 메시지 내용, SMS: 최대 80byte, LMS, MMS: 최대 2000byte
+	    bodyJson.put("content", "이의현님이 위험합니다. 전라남로 나주시 스인재 33번지로 가주세요!");	// Mandatory(필수), 기본 메시지 내용, SMS: 최대 80byte, LMS, MMS: 최대 2000byte
 	    bodyJson.put("messages", toArr);					// Mandatory(필수), 아래 항목들 참조 (messages.XXX), 최대 1,000개
 	    
 	    //String body = bodyJson.toJSONString();

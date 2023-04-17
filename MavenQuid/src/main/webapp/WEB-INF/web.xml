@@ -46,6 +46,18 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.UpdateService2</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ButtonEvent</servlet-name>
+  	<display-name>ButtonEvent</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.ButtonEvent</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ButtonToDB</servlet-name>
+  	<display-name>ButtonToDB</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.ButtonToDB</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinService</servlet-name>
   	<url-pattern>/JoinService</url-pattern>
@@ -73,5 +85,13 @@
   <servlet-mapping>
   	<servlet-name>UpdateService2</servlet-name>
   	<url-pattern>/UpdateService2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ButtonEvent</servlet-name>
+  	<url-pattern>/ButtonEvent</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ButtonToDB</servlet-name>
+  	<url-pattern>/ButtonToDB</url-pattern>
   </servlet-mapping>
 </web-app>
