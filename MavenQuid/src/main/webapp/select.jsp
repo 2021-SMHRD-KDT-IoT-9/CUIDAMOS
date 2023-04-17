@@ -19,17 +19,19 @@
 				System.out.print(list.get(0).getGu_id());
 		%>
 	
-	<body style="text-align: center;">
+	<body style="text-align: center">
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<!-- Menu -->
-					<nav id="Update">	
+					<nav>	
 						<table>
 							<caption><h2>회원관리페이지</h2></caption>
 							<tr>
 								<td>아이디</td>
 								<td>이름</td>
-								<td>주소</td>							
+								<td>연락처</td>
+								<td>주소</td>
+								<td>생년월일</td>								
 							</tr>
 							<!-- 회원의 수만큼 tr 태그 반복 출력 -->
 							<!-- 2.모든 회원의 이메일(email),전화번호(tel),주소(address)를 출력하시오. -->
@@ -37,17 +39,22 @@
 							<tr>
 								<td><%=list.get(i).getGu_id() %></td>
 								<td><%=list.get(i).getGu_name() %></td>
+								<td><%=list.get(i).getPhone() %></td>
 								<td><%=list.get(i).getAddress() %></td>
+								<td><%=list.get(i).getBirth() %></td>
 								<!-- url에 데이터를 실어서 보내는 방법을 뭐라고 할까요? 쿼리스트링 -->
 								<!-- url?name=value&name=value&name=value -->
-								<td><a href="Update.jsp?gu_id=<%=list.get(i).getGu_id() %>">수정</a></td>
-								<td><a href="DeleteService?gu_id=<%=list.get(i).getGu_id() %>">삭제</a></td>
+								<td><a href="Update.jsp?gu_id=<%=list.get(i).getGu_id() %>"><input type="button" value="수정" class="submit-btn"></a></td>
+								<td>
+								<%-- <a href="DeleteService?gu_id=<%=list.get(i).getGu_id() %>"> --%>
+								<input type="button" value="삭제" class="submit-btn" onclick="removeCheck()"></td>
 							</tr>
 							<%} %> 
 							
 						</table>
 					</nav>		
-					<a href="index.jsp" class="button next scrolly">되돌아가기</a>	
+					<a href="index.jsp"><input type="button" value="되돌아가기" class="submit-btn"></a>	
+					
 			</div>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -57,6 +64,8 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-	</body>
+
+	
+</body>
 </html>
 

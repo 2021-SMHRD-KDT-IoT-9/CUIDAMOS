@@ -11,8 +11,6 @@ public class WebMember1 {
 	private String gender;
 	private String furniture;
 
-	
-
 	@Override
 	public String toString() {
 		return "WebMember [gu_id=" + gu_id + ", pw=" + pw + ", gu_name=" + gu_name + ", address=" + address + ", phone="

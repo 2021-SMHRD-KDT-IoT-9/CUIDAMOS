@@ -9,6 +9,7 @@
   <!-- 타입 별칭 -->
   <typeAliases>
   	<typeAlias type="com.smhrd.model.WebMember1" alias="WebMember1"/>
+  	<typeAlias type="com.smhrd.model.StateManagerDTO" alias="StateManagerDTO"/>
   </typeAliases>
 
   <environments default="development">

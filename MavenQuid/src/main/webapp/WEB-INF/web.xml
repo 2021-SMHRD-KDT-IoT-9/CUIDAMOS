@@ -47,6 +47,7 @@
   	<servlet-class>com.smhrd.controller.UpdateService2</servlet-class>
   </servlet>
   <servlet>
+<<<<<<< HEAD
   	<servlet-name>ButtonEvent</servlet-name>
   	<display-name>ButtonEvent</display-name>
   	<description></description>
@@ -57,6 +58,12 @@
   	<display-name>ButtonToDB</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.ButtonToDB</servlet-class>
+=======
+  	<servlet-name>stateManagerDTO</servlet-name>
+  	<display-name>stateManagerDTO</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.model.stateManagerDTO</servlet-class>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-9/CUIDAMOS.git
   </servlet>
   <servlet-mapping>
   	<servlet-name>JoinService</servlet-name>
@@ -87,11 +94,16 @@
   	<url-pattern>/UpdateService2</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+<<<<<<< HEAD
   	<servlet-name>ButtonEvent</servlet-name>
   	<url-pattern>/ButtonEvent</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ButtonToDB</servlet-name>
   	<url-pattern>/ButtonToDB</url-pattern>
+=======
+  	<servlet-name>stateManagerDTO</servlet-name>
+  	<url-pattern>/stateManagerDTO</url-pattern>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-9/CUIDAMOS.git
   </servlet-mapping>
 </web-app>

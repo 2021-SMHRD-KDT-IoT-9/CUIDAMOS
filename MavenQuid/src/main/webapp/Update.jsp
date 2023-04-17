@@ -47,8 +47,8 @@
 				</div>
 
 				<div class="field half">
-					<label>주민번호</label> <input type="text" name="birth"
-						value="<%=member.getBirth() %>" /> - XXXXXXX
+					<label>생년월일</label> <input type="text" name="birth" placeholder="0000-00-00" 
+						value="<%=member.getBirth() %>" id="birthNum">
 						
 				</div>
 				<br>
@@ -59,13 +59,18 @@
 				</div>
 
 				<div class="field half">
-					<label>성별</label> <input type="radio" name="gender"
+					<label>성별</label> <input type="text" name="gender"
 						value="<%=member.getGender() %>" />
+				</div>
+				
+				<div class="field half">
+					<label>아두이노번호</label> <input type="text" name="furniture"
+						value="<%=member.getFurniture() %>" />
 				</div>
 
 			</div>
 			<ul class="actions">
-				<li><input type="submit" value="정보수정" class="button fit"></li>
+				<li><input type="submit" value="정보수정" class="submit-btn"></li>
 			</ul>
 		</form>  
 		<script>
@@ -105,6 +110,38 @@
 			}
 			
 		</script>
+		
+		<script>
+			var autoHypen2 = function(str2){
+				str2=str2.replace(/[^0-9]/g, '');
+				var tmp = '';
+				if(str2.length<4){
+					return str;
+				}else if(str2.length<7){
+					tmp += str2.substr(0, 4);
+					tmp += '-';
+					tmp += str2.substr(4);
+					return tmp;
+				}else{
+					tmp += str2.substr(0,4);
+					tmp += '-';
+					tmp += str2.substr(4,2);
+					tmp += '-';
+					tmp += str2.substr(6);
+					return tmp;
+				}
+				return str2;
+			}
+			
+			var birthNum = document.getElementById('birthNum');
+			
+			birthNum.onkeyup = function(){
+				console.log(this.value);
+				this.value=autoHypen2(this.value);
+			}
+			
+		</script>
+		
 	
 </body>
 </html>

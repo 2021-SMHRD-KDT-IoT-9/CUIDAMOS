@@ -37,7 +37,7 @@
 				<%-- <td>el: ${requestScope.gu_id}</td> --%>	
 			</tr>
 		</table>
-		<a href="index.jsp"><input type="button" value="메인페이지로"></a> </nav>
+		<a href="index.jsp"><input type="button" value="메인페이지로" class="submit-btn"></a> </nav>
 	</div>
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
