@@ -4,10 +4,10 @@
 ![image](https://user-images.githubusercontent.com/121774504/232929298-30585f1c-3c1e-46f7-8f3a-9afb41e3acc7.png)
 
 ● 프로젝트 정보
-->
+-> 생명 활동 감지센서
 ![image](https://user-images.githubusercontent.com/121774504/232929330-fa59c76a-faea-4da8-9e44-cf81378d166c.png)
 
-->
+-> 위급 상황 알림버튼
 ![image](https://user-images.githubusercontent.com/121774504/232929379-a6650572-fbec-4b90-9330-afe49f296219.png)
 
 
